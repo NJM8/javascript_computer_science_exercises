@@ -123,6 +123,7 @@ describe("#stringifyNumbers", function(){
         }
       }
     }
+    console.log(stringifyNumbers(obj));
     expect(stringifyNumbers(obj)).to.deep.equal(answer)
   });
   it("should convert all numbers in a highly nested object to strings", function(){
