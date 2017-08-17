@@ -1,3 +1,7 @@
+// changed all node.val statements to node.value. Personal preference
+// changed unshift to unShift for correct camel case.
+// changes prev to previous in the #Node contains a value test, again personal preference for the full word.
+
 var expect = chai.expect
 var doublyLinkedList;
 var node;
@@ -21,11 +25,11 @@ describe("#doublyLinkedList", function(){
 });
 
 describe("#Node", function(){
-  it("contains a val", function(){
-    expect(node.val).to.equal(15)
-    expect(node.hasOwnProperty('val')).to.equal(true)
+  it("contains a value", function(){
+    expect(node.value).to.equal(15)
+    expect(node.hasOwnProperty('value')).to.equal(true)
     expect(node.hasOwnProperty('next')).to.equal(true)
-    expect(node.hasOwnProperty('prev')).to.equal(true)
+    expect(node.hasOwnProperty('previous')).to.equal(true)
   });
 });
 
@@ -33,18 +37,18 @@ describe("#push", function(){
   it("inserts a node at the end of the list and increments the length of the list", function(){
     doublyLinkedList.push(5)
     expect(doublyLinkedList.length).to.equal(1)
-    expect(doublyLinkedList.head.val).to.equal(5)
+    expect(doublyLinkedList.head.value).to.equal(5)
     doublyLinkedList.push(10)
     expect(doublyLinkedList.length).to.equal(2)
-    expect(doublyLinkedList.head.next.val).to.equal(10)
+    expect(doublyLinkedList.head.next.value).to.equal(10)
     doublyLinkedList.push(15)
     expect(doublyLinkedList.length).to.equal(3)
-    expect(doublyLinkedList.head.next.next.val).to.equal(15)
+    expect(doublyLinkedList.head.next.next.value).to.equal(15)
   });
   it("returns the doublyLinkedList so that the method can be chained", function(){
     doublyLinkedList.push(5).push(10).push(15)
     expect(doublyLinkedList.length).to.equal(3)
-    expect(doublyLinkedList.head.next.next.val).to.equal(15)
+    expect(doublyLinkedList.head.next.next.value).to.equal(15)
   });
 });
 
@@ -61,25 +65,25 @@ describe("#pop", function(){
   });
 });
 
-describe("#unshift", function(){
+describe("#unShift", function(){
  it("inserts a node at the beginning of the list and increments the length of the list", function(){
-   doublyLinkedList.unshift(5)
+   doublyLinkedList.unShift(5)
    expect(doublyLinkedList.length).to.equal(1)
-   expect(doublyLinkedList.head.val).to.equal(5)
-   doublyLinkedList.unshift(10)
+   expect(doublyLinkedList.head.value).to.equal(5)
+   doublyLinkedList.unShift(10)
    expect(doublyLinkedList.length).to.equal(2)
-   expect(doublyLinkedList.head.val).to.equal(10)
-   expect(doublyLinkedList.head.next.val).to.equal(5)
-   doublyLinkedList.unshift(15)
+   expect(doublyLinkedList.head.value).to.equal(10)
+   expect(doublyLinkedList.head.next.value).to.equal(5)
+   doublyLinkedList.unShift(15)
    expect(doublyLinkedList.length).to.equal(3)
-   expect(doublyLinkedList.head.val).to.equal(15)
-   expect(doublyLinkedList.head.next.val).to.equal(10)
-   expect(doublyLinkedList.head.next.next.val).to.equal(5)
+   expect(doublyLinkedList.head.value).to.equal(15)
+   expect(doublyLinkedList.head.next.value).to.equal(10)
+   expect(doublyLinkedList.head.next.next.value).to.equal(5)
  });
  it("returns the doublyLinkedList so that the method can be chained", function(){
-   doublyLinkedList.unshift(5).unshift(10).unshift(15)
+   doublyLinkedList.unShift(5).unShift(10).unShift(15)
    expect(doublyLinkedList.length).to.equal(3)
-   expect(doublyLinkedList.head.next.next.val).to.equal(5)
+   expect(doublyLinkedList.head.next.next.value).to.equal(5)
  });
 });
 
@@ -103,23 +107,23 @@ describe("#shift", function(){
 });
 
 describe("#set", function(){
-  it("finds a node and replaces its val or returns undefined if the node is not found", function(){
+  it("finds a node and replaces its value or returns undefined if the node is not found", function(){
     doublyLinkedList.push(5).push(10).push(15).push(20)
     expect(doublyLinkedList.length).to.equal(4)
     doublyLinkedList.set(0,10)
     expect(doublyLinkedList.length).to.equal(4)
-    expect(doublyLinkedList.head.val).to.equal(10)
+    expect(doublyLinkedList.head.value).to.equal(10)
     doublyLinkedList.set(10,10)
     expect(doublyLinkedList.length).to.equal(4)
-    expect(doublyLinkedList.head.val).to.equal(10)
+    expect(doublyLinkedList.head.value).to.equal(10)
     doublyLinkedList.set(2,100)
     expect(doublyLinkedList.length).to.equal(4)
-    expect(doublyLinkedList.head.next.next.val).to.equal(100)
+    expect(doublyLinkedList.head.next.next.value).to.equal(100)
   });
 });
 
 describe("#_get", function(){
-  it("finds a node and returns its val ", function(){
+  it("finds a node and returns its value ", function(){
     doublyLinkedList.push(5).push(10).push(15).push(20)
     expect(doublyLinkedList.get(0)).to.equal(5)
     expect(doublyLinkedList.get(1)).to.equal(10)
@@ -134,11 +138,11 @@ describe("#_insert", function(){
     doublyLinkedList.push(5).push(10).push(15).push(20)
     doublyLinkedList.insert(2,12)
     expect(doublyLinkedList.length).to.equal(5)
-    expect(doublyLinkedList.head.val).to.equal(5)
-    expect(doublyLinkedList.head.next.val).to.equal(10)
-    expect(doublyLinkedList.head.next.next.val).to.equal(12)
-    expect(doublyLinkedList.head.next.next.next.val).to.equal(15)
-    expect(doublyLinkedList.head.next.next.next.next.val).to.equal(20)
+    expect(doublyLinkedList.head.value).to.equal(5)
+    expect(doublyLinkedList.head.next.value).to.equal(10)
+    expect(doublyLinkedList.head.next.next.value).to.equal(12)
+    expect(doublyLinkedList.head.next.next.next.value).to.equal(15)
+    expect(doublyLinkedList.head.next.next.next.next.value).to.equal(20)
   });
 });
 
@@ -147,9 +151,9 @@ describe("#remove", function(){
     doublyLinkedList.push(5).push(10).push(15).push(20)
     doublyLinkedList.remove(2)
     expect(doublyLinkedList.length).to.equal(3)
-    expect(doublyLinkedList.head.val).to.equal(5)
-    expect(doublyLinkedList.head.next.val).to.equal(10)
-    expect(doublyLinkedList.head.next.next.val).to.equal(20)
+    expect(doublyLinkedList.head.value).to.equal(5)
+    expect(doublyLinkedList.head.next.value).to.equal(10)
+    expect(doublyLinkedList.head.next.next.value).to.equal(20)
   });
 });
 
@@ -158,9 +162,9 @@ describe("#reverse", function(){
     doublyLinkedList.push(5).push(10).push(15).push(20)
     doublyLinkedList.reverse()
     expect(doublyLinkedList.length).to.equal(4)
-    expect(doublyLinkedList.head.val).to.equal(20)
-    expect(doublyLinkedList.head.next.val).to.equal(15)
-    expect(doublyLinkedList.head.next.next.val).to.equal(10)
-    expect(doublyLinkedList.head.next.next.next.val).to.equal(5)
+    expect(doublyLinkedList.head.value).to.equal(20)
+    expect(doublyLinkedList.head.next.value).to.equal(15)
+    expect(doublyLinkedList.head.next.next.value).to.equal(10)
+    expect(doublyLinkedList.head.next.next.next.value).to.equal(5)
   });
 });
