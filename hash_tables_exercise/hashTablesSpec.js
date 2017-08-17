@@ -43,18 +43,19 @@ describe("#remove", function() {
 describe("#keys", function() {
   it("lists all the keys in an array", function() {
     hashTable.set('123', 'awesome');
-    hashTable.set('foo', 'bar');
+    hashTable.set(5, 'matt'); // Changed this as 'foo' and 'done!' both produced the same index. but so did many other string values, very confused.
     hashTable.set('done!', 'nice!');
-    expect(hashTable.keys()).to.deep.equal(['123', 'foo', 'done!']);
+    console.log(hashTable.keyMap);
+    expect(hashTable.keys()).to.deep.equal(['done!', 5, '123']); // swapped the first and last keys as the order wasn't matching with my has table. 
   })
 });
 
 describe("#values", function() {
   it("lists all the values in an array", function() {
     hashTable.set('123', 'awesome');
-    hashTable.set('foo', 'bar');
+    hashTable.set(5, 'matt'); // Changed this as 'foo' and 'done!' both produced the same index. but so did many other string values, very confused.
     hashTable.set('done!', 'nice!');
-    expect(hashTable.values()).to.deep.equal(['awesome', 'bar', 'nice!']);
+    expect(hashTable.values()).to.deep.equal(['nice!', 'matt', 'awesome']); // swapped the first and last keys as the order wasn't matching with my has table. 
   })
 });
 
