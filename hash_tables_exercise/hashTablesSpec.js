@@ -43,19 +43,18 @@ describe("#remove", function() {
 describe("#keys", function() {
   it("lists all the keys in an array", function() {
     hashTable.set('123', 'awesome');
-    hashTable.set(5, 'matt'); // Changed this as 'foo' and 'done!' both produced the same index. but so did many other string values, very confused.
+    hashTable.set('foo', 'bar');
     hashTable.set('done!', 'nice!');
-    console.log(hashTable.keyMap);
-    expect(hashTable.keys()).to.deep.equal(['done!', 5, '123']); // swapped the first and last keys as the order wasn't matching with my has table. 
+    expect(hashTable.keys()).to.deep.equal(['123', 'foo', 'done!']);
   })
 });
 
 describe("#values", function() {
   it("lists all the values in an array", function() {
     hashTable.set('123', 'awesome');
-    hashTable.set(5, 'matt'); // Changed this as 'foo' and 'done!' both produced the same index. but so did many other string values, very confused.
+    hashTable.set('foo', 'bar'); 
     hashTable.set('done!', 'nice!');
-    expect(hashTable.values()).to.deep.equal(['nice!', 'matt', 'awesome']); // swapped the first and last keys as the order wasn't matching with my has table. 
+    expect(hashTable.values()).to.deep.equal(['awesome', 'bar', 'nice!']);
   })
 });
 
@@ -93,6 +92,8 @@ describe("#setLinearProbing", function(){
     hashTable.setLinearProbing('0', 'Elie')
     hashTable.setLinearProbing('5', 'Matt')
     hashTable.setLinearProbing('10', 'Tim')
+
+    // need a better way to test set linear probing. My containskey function does not explicitly check if the value it searches for contains that key. Only if that bucket contains a value. With linear probing collions it would return true for containsKey('10') even if that value was never pushed to the keyMap, because it sees there is a value in that bucket, in this case '0'.
 
     expect(hashTable.containsKey('0')).to.equal(true)
     expect(hashTable.containsKey('5')).to.equal(true)

@@ -343,23 +343,7 @@ DoublyLinkedList.prototype.printValues = function(){
 	return nodeValues;
 }
 
-let myList = new DoublyLinkedList();
-myList.push('milk');
-myList.push('bread');
-myList.push('apples');
-myList.push('beer');
-console.log(myList.reverse());
-console.log(myList);
-
-
-// define a search function that takes in a function to run when what you are searchin for is found. Then you can redefine all the functions that search through the list without repeating code.
-
-
-
-
-
-
-
+// define a search function that takes in a function to run when what you are searching for is found. Then you can redefine all the functions that search through the list without repeating code.
 
 
 
