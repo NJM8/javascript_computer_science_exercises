@@ -163,7 +163,7 @@ describe("#breadthFirstSearch", function(){
 
 describe("#dijkstra", function(){
   it("should return an array of the total distance and the shortest path", function(){
-    var g = new WeightedGraph
+    var g = new WeightedGraph;
     g.addVertex('S')
     g.addVertex('P')
     g.addVertex('U')
@@ -175,30 +175,30 @@ describe("#dijkstra", function(){
     g.addVertex('W')
     g.addVertex('T')
 
-    g.addEdge('S','P', 2)
-    g.addEdge('S','U', 3)
+    g.addWeightedEdge('S','P', 2)
+    g.addWeightedEdge('S','U', 3)
 
-    g.addEdge('P','X', 4)
-    g.addEdge('U','X', 1)
+    g.addWeightedEdge('P','X', 4)
+    g.addWeightedEdge('U','X', 1)
 
-    g.addEdge('P','Q', 5)
-    g.addEdge('U','V', 3)
+    g.addWeightedEdge('P','Q', 5)
+    g.addWeightedEdge('U','V', 3)
 
-    g.addEdge('X','Q', 7)
-    g.addEdge('X','Y', 6)
-    g.addEdge('X','V', 8)
+    g.addWeightedEdge('X','Q', 7)
+    g.addWeightedEdge('X','Y', 6)
+    g.addWeightedEdge('X','V', 8)
 
-    g.addEdge('Q','R', 2)
-    g.addEdge('Y','R', 1)
+    g.addWeightedEdge('Q','R', 2)
+    g.addWeightedEdge('Y','R', 1)
 
-    g.addEdge('Y','W', 3)
-    g.addEdge('V','W', 4)
+    g.addWeightedEdge('Y','W', 3)
+    g.addWeightedEdge('V','W', 4)
 
-    g.addEdge('R','T', 6)
-    g.addEdge('W','T', 7)
+    g.addWeightedEdge('R','T', 6)
+    g.addWeightedEdge('W','T', 7)
 
-    expect(g.Dijkstra('S','T')[0]).to.equal(15)
-    expect(g.Dijkstra('S','T')[1]).to.deep.equal(['S','P','Q','R','T'])
+    expect(g.dijkstra('S','T')[0]).to.equal(15)
+    expect(g.dijkstra('S','T')[1]).to.deep.equal(['S','P','Q','R','T'])
   });
 });
 
