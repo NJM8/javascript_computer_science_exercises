@@ -304,7 +304,7 @@ SinglyLinkedList.prototype.findInList = function(key){
   } 
 }
 
-// Lots to be updatd and optimized here. Should use findInList in all functions that require seraching and have it pass back teh found node. Then do whatever with it.  
+// Lots to be updated and optimized here. Should use findInList in all functions that require searching and have it pass back the found node. Then do whatever with it.  
 
 
 
