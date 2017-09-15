@@ -195,6 +195,7 @@ WeightedGraph.prototype.dijkstra = function(start, end){
 	while (queue.getLength() > 0) {
 		smallest = queue.remove();
 		visited.push(smallest.vertice);
+		console.log(queue);
 
 		if (smallest.vertice === end) {
 			distance = smallest.weight;

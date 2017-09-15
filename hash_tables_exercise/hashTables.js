@@ -99,10 +99,6 @@ HashTable.prototype.containsKey = function(key){
     return false;
   } 
 
-  if (record.head.key === key) {
-    return true;
-  }
-
   if (record.length === 1 && record.head.key !== key) {
     while (record) {
       if (record.head.key === key) {
@@ -114,19 +110,22 @@ HashTable.prototype.containsKey = function(key){
       index++;
       record = this.keyMap[index];
     }
-  }
-
-  if (record.length > 1) {
-    if (record) {
-      let node = record.head;
-      while (node) {
-        if (node.key === key) {
-          return true;
-        } 
-        node = node.next;
-      }
-    } 
   } 
+
+  if (record.head.key === key) {
+    return true;
+  } else {
+    let node = record.head;
+    while (node) {
+      if (node.key === key) {
+        return true;
+      } 
+      if (node.key === null) {
+        return false;
+      }
+      node = node.next;
+    } 
+  }
 }
 
 // remove - This function should remove a value from the hash table
@@ -305,10 +304,6 @@ SinglyLinkedList.prototype.findInList = function(key){
 }
 
 // Lots to be updated and optimized here. Should use findInList in all functions that require searching and have it pass back the found node. Then do whatever with it.  
-
-
-
-
 
 
 

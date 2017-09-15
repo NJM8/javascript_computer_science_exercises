@@ -343,7 +343,7 @@ DoublyLinkedList.prototype.printValues = function(){
 	return nodeValues;
 }
 
-// define a search function that takes in a function to run when what you are searching for is found. Then you can redefine all the functions that search through the list without repeating code.
+
 
 
 
